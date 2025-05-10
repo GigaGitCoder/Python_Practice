@@ -13,4 +13,5 @@ for i in matrix:
     print(i)
 
 negative_elements = matrix_negative(matrix)
+print(negative_elements)
 print(len(negative_elements)) 

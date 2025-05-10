@@ -3,7 +3,11 @@
 
 def extract_consonants(cities):
     vowels = 'аеёиоуыэюяАЕЁИОУЫЭЮЯ'
-    return [char.upper() for city in cities for char in city if char not in vowels and char.isalpha()]
+    result = []
+    for city in cities:
+        consonants = ''.join(char.upper() for char in city if char not in vowels and char.isalpha())
+        result.append(consonants)
+    return result
 
 
 cities = ['Оттава', 'Москва', 'Пекин', 'Полоцк', 'Версаль', 'Дели', 'Каир']
