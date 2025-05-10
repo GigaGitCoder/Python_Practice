@@ -2,24 +2,18 @@
 
 import random
 
-def generate_heights():
-    heights = []
-    for i in range(20):
-        heights.append(random.randint(170, 210))
-    return heights
+def generate_heights(min_height, max_height, length):
+    return [random.randint(min_height, max_height) for _ in range(length)]
 
 def determine_teams(heights):
-    basketball_team = []
-    football_team = []
-    for height in heights:
-        if height >= 190:
-            basketball_team.append(height)
-        else:
-            football_team.append(height)
-    return basketball_team, football_team
+    return {
+        'basketball':[guy for guy in heights if guy >= 190],
+        'football':[guy for guy in heights if guy < 190]
+        }
 
-heights = generate_heights()
-basketball_team, football_team = determine_teams(heights)
+heights = generate_heights(170, 210, 20)
+teams = determine_teams(heights)
+
 print(f'Рост юношей: {heights}')
-print(f'Количество юношей в баскетбольной команде: {len(basketball_team)}')
-print(f'Количество юношей в футбольной команде: {len(football_team)}')
+print(f'Количество юношей в баскетбольной команде: {len(teams['basketball'])}')
+print(f'Количество юношей в футбольной команде: {len(teams['football'])}')
