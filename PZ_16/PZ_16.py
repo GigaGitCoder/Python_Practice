@@ -4,25 +4,16 @@
 
 class Computer:
     def __init__(self, brand, processor, ram):
-        """Конструктор класса Компьютер
-        
-        Args:
-            brand (str): Марка компьютера
-            processor (str): Модель процессора
-            ram (str): Объем оперативной памяти
-        """
         self.brand = brand
         self.processor = processor
         self.ram = ram
     
     def get_info(self):
-        """Возвращает информацию о компьютере в заданном формате"""
         return f"Марка: {self.brand}, Процессор: {self.processor}, Оперативная память: {self.ram}"
 
 
 if __name__ == "__main__":
     test_comp1 = Computer("Apple", "M1 Pro", "16 GB")
-    
     print(test_comp1.get_info())
     
     test_comp2 = Computer("Dell", "Intel Core i7-11800H", "32 GB")
